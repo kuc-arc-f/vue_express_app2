@@ -10,5 +10,11 @@ router.get('/', function(req, res, next) {
 router.get('/new', function(req, res, next) {
     res.render('tasks/new', {});
   });
-  
+
+router.get('/show/:id', function(req, res) {
+console.log(req.params.id  );
+//{ title: 'Express'}
+    res.render('tasks/show', {"params_id": req.params.id });
+});
+
 module.exports = router;

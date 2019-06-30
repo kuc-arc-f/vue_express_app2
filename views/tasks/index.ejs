@@ -6,6 +6,7 @@
     <ul v-for="task in tasks" v-bind:key="task._id">
         <li>{{ task.title }} / id: {{ task._id }}
             <p>{{ task.content }}</p>
+            <a v-bind:href="task.url">[show]</a>
         </li>
     </ul>    
 </div>
@@ -24,8 +25,15 @@ new Vue({
     methods: {
         getTasks () {
             axios.get("/api/tasks_index").then(res =>  {
-                this.tasks = res.data.docs
-                console.log(res.data.docs);
+//                console.log(res.data.docs);
+                var items = res.data.docs
+                var arr =[];
+                items.forEach( function (item) {
+                    item.url ="/tasks/show/" + item._id,
+                    arr.push(item)
+                });      
+                this.tasks = arr;
+                console.log( this.tasks );
             })        
         }
     }
