@@ -12,6 +12,7 @@ Vue.js + express + mongoDB , ejs sample
 ***
 ### blog
 
+https://knaka0209.hatenablog.com/entry/vue_express_2
 
 ***
 
