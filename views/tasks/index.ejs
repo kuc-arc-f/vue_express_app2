@@ -1,0 +1,34 @@
+<div id="app">
+    <h1>Tasks - index</h1>
+    <hr />
+    <a class="btn btn-primary" href="/tasks/new"> add</a>
+    <hr />
+    <ul v-for="task in tasks" v-bind:key="task._id">
+        <li>{{ task.title }} / id: {{ task._id }}
+            <p>{{ task.content }}</p>
+        </li>
+    </ul>    
+</div>
+
+<!-- -->
+<script>
+new Vue({
+    el: '#app',
+    created () {
+        this.getTasks()
+    },    
+    data: {
+        msg : "aa-1234",
+        tasks: [],
+    },
+    methods: {
+        getTasks () {
+            axios.get("/api/tasks_index").then(res =>  {
+                this.tasks = res.data.docs
+                console.log(res.data.docs);
+            })        
+        }
+    }
+
+});
+</script>
