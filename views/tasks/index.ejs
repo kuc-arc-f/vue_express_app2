@@ -6,7 +6,8 @@
     <ul v-for="task in tasks" v-bind:key="task._id">
         <li>{{ task.title }} / id: {{ task._id }}
             <p>{{ task.content }}</p>
-            <a v-bind:href="task.url">[show]</a>
+            <a v-bind:href="'/tasks/show/' + task._id">[show]</a><br />
+            <a v-bind:href="'/tasks/edit/' + task._id">[edit]</a><br />
         </li>
     </ul>    
 </div>
@@ -16,7 +17,8 @@
 new Vue({
     el: '#app',
     created () {
-        this.getTasks()
+        this.getTasks();
+        console.log("#tasks.index");
     },    
     data: {
         msg : "aa-1234",

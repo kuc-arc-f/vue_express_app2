@@ -17,4 +17,10 @@ console.log(req.params.id  );
     res.render('tasks/show', {"params_id": req.params.id });
 });
 
+router.get('/edit/:id', function(req, res) {
+  console.log(req.params.id  );
+  //{ title: 'Express'}
+      res.render('tasks/edit', {"params_id": req.params.id });
+});
+
 module.exports = router;

@@ -21,8 +21,6 @@ new Vue({
 //        this.getTasks()
     },    
     data: {
-//        msg : "aa-1234",
-//       tasks: [],
         title:'',
         content:''        
     },
@@ -34,7 +32,6 @@ new Vue({
             };
             axios.post('/api/tasks_new' , task ).then(res => {
                 console.log(res.data );
-//                console.log(res.data.content);
             });
         },        
     }

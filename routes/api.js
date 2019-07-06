@@ -56,4 +56,30 @@ router.get('/tasks_show/:id', function(req, res) {
     */
 });
 
+//update
+router.post('/tasks_update', (req, res) => {
+    var db = req.db;
+    console.log(req.body )
+//        var obj = req.body;
+    var obj = { "title": req.body.title ,
+                "content": req.body.content
+                };
+    var collection = db.get('books');
+    collection.findOneAndUpdate( { _id: new ObjectID( req.body.id ) }, obj, {}, function(err, r){
+        if (err) throw err;
+        res.json(req.body);
+        db.close();
+    });        
+});
+//delete
+router.get('/tasks_delete/:id', function(req, res) {
+    var db = req.db;
+    console.log(req.params.id  );
+    var collection = db.get('books');
+    collection.findOneAndDelete( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
+        //console.log("#doc");
+        res.json(r);
+    });
+});
+
 module.exports = router;

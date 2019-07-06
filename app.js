@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/app1db');
+//var db = monk('localhost:27017/app1db');
+var db = monk('192.168.10.104:27017/app1db');
+
 //
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,7 +20,6 @@ app.use(expressLayouts);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
