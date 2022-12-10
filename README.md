@@ -6,6 +6,8 @@
 
  date    : 2019/06/30
 
+ update:  2022/12/10
+
 ***
 Vue.js + express + mongoDB , ejs sample
 
